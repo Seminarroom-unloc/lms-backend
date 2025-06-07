@@ -13,7 +13,11 @@ public class ReadingMaterial {
     private String title;
 
     // Store the file URL or key in S3 (not the actual PDF file)
+<<<<<<< HEAD
     private String s3url;
+=======
+    private String s3Url;
+>>>>>>> 41496541e22464b94ac858c4672ccfa3b93bf8e4
 
     @ManyToOne
     @JoinColumn(name = "module_id")
@@ -27,8 +31,13 @@ public class ReadingMaterial {
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }
 
+<<<<<<< HEAD
     public String getS3Url() { return s3url; }
     public void setS3Url(String s3url) { this.s3url = s3url; }
+=======
+    public String getS3Url() { return s3Url; }
+    public void setS3Url(String s3Url) { this.s3Url = s3Url; }
+>>>>>>> 41496541e22464b94ac858c4672ccfa3b93bf8e4
 
     public Module getModule() { return module; }
     public void setModule(Module module) { this.module = module; }

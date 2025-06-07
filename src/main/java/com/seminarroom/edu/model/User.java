@@ -13,6 +13,14 @@ public class User {
     private String email;
     private String username;
     private String password;
+<<<<<<< HEAD
+=======
+    private String phone;
+    private String bio;
+    private String location;
+    private String occupation;
+    private String interests;
+>>>>>>> 41496541e22464b94ac858c4672ccfa3b93bf8e4
 
     // Getters and Setters
     public Long getId() { return id; }
@@ -29,4 +37,22 @@ public class User {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+<<<<<<< HEAD
+=======
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+
+    public String getBio() { return bio; }
+    public void setBio(String bio) { this.bio = bio; }
+
+    public String getLocation() { return location; }
+    public void setLocation(String location) { this.location = location; }
+
+    public String getOccupation() { return occupation; }
+    public void setOccupation(String occupation) { this.occupation = occupation; }
+
+    public String getInterests() { return interests; }
+    public void setInterests(String interests) { this.interests = interests; }
+>>>>>>> 41496541e22464b94ac858c4672ccfa3b93bf8e4
 }
