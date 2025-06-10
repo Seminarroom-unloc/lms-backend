@@ -15,22 +15,39 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .cors().and()
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers(
-                    "/api/auth/**",
-                    "/api/courses/**",
-                    "/api/modules/**",
-                    "/api/modules/reading-materials/**",
-                    "/api/modules/video-lectures/**",
-                    "/api/modules/assignments/**",
-                    "/api/user/me",
-                    "/api/user/update"
-                ).permitAll()
-                .anyRequest().authenticated()
-            )
-            .httpBasic();
+                .cors() // ✅ ENABLE CORS here
+                .and()
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers(
+                         
+//                                  "/api/auth/**",
+//         "/api/courses/**",
+//         "/api/modules/**",
+//         "/api/modules/{moduleId}/reading-materials"
+// ,
+//         "/api/modules/reading-materials/**",
+//         "/api/modules/video-lectures/**",
+//         "/api/modules/assignments/**",
+//         "/api/user/me",
+//         "/api/user/update",
+//         "/api/progress/**"  // ✅ Add this line
+                              "/api/auth/**",
+        "/api/courses/**",
+        "/api/modules/**",
+        "/api/modules/{moduleId}/reading-materials",
+        "/api/modules/reading-materials/**",
+        "/api/modules/video-lectures/**",
+        "/api/modules/assignments/**",
+        "/api/user/me",
+        "/api/user/update",
+        "/api/progress/**",
+        "/api/quizzes/**",               // ✅ ADD THIS
+        "/api/quizzes/submit"     
+                        ).permitAll()
+                        .anyRequest().authenticated()
+                )
+                .httpBasic(); // or .formLogin() if using session auth
 
         return http.build();
     }

@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -66,4 +68,17 @@ public class AuthController {
         response.put("user", user);
         return ResponseEntity.ok(response);
     }
+    @PostMapping("/logout")
+public ResponseEntity<?> logoutUser(HttpServletResponse response) {
+    // Clear cookie by setting expiry in past
+    Cookie cookie = new Cookie("token", null);
+    cookie.setHttpOnly(true);
+    cookie.setSecure(true);  // if HTTPS
+    cookie.setPath("/");
+    cookie.setMaxAge(0);
+    response.addCookie(cookie);
+
+    return ResponseEntity.ok("Logged out successfully");
+}
+
 }
